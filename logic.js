@@ -30,3 +30,22 @@
             btnLista.className = "btn btn-outline-secondary";
         }
     }
+    function renderLista() {
+        let html = `
+        <table class="table table-hover table-striped table-bordered align-middle">
+            <thead class="table-dark">
+                <tr><th>CÓDIGO</th><th>ASIGNATURA</th><th class="text-center">GRUPO</th><th class="text-center">DÍA</th><th class="text-center">HORARIO</th><th class="text-center">AULA</th></tr>
+            </thead>
+            <tbody>`;
+        
+        materias.forEach(m => {
+            html += `<tr>
+                <td>${m.codigo}</td><td class="fw-bold">${m.nombre}</td>
+                <td class="text-center"><span class="badge bg-primary">${m.grupo}</span></td>
+                <td class="text-center">${m.dia}</td>
+                <td class="text-center">${m.horaInicio}:00 - ${m.horaFin - 1}:40</td>
+                <td class="text-center"><span class="badge bg-secondary">${m.aula}</span></td>
+            </tr>`;
+        });
+        appContainer.innerHTML = html + `</tbody></table>`;
+    }
