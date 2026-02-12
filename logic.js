@@ -49,3 +49,36 @@
         });
         appContainer.innerHTML = html + `</tbody></table>`;
     }
+
+    function renderCalendario() {
+        let html = `
+        <table class="table table-bordered text-center mb-0">
+            <thead class="table-dark">
+                <tr><th style="width:10%">HORA</th>${diasSemana.map(d => `<th style="width:18%">${d}</th>`).join('')}</tr>
+            </thead>
+            <tbody>`;
+
+        for (let hora = 8; hora <= 16; hora++) {``
+            html += `<tr><td class="bg-light fw-bold align-middle py-4">${hora}:00</td>`;
+            
+            diasSemana.forEach(dia => {
+                const m = materias.find(x => x.dia === dia && x.horaInicio === hora);
+                
+                if (m) {
+                    let rowspan = m.horaFin - m.horaInicio;
+                    html += `<td rowspan="${rowspan}" class="table-primary border-start border-4 border-primary align-middle position-relative">
+                                <div class="fw-bold text-primary">${m.nombre}</div>
+                                <span class="badge bg-primary mb-1">${m.grupo}</span>
+                                <div class="small text-muted">${m.aula}</div>
+                             </td>`;
+                } else {
+                    const ocupado = materias.some(x => x.dia === dia && hora > x.horaInicio && hora < x.horaFin);
+                    if (!ocupado) {
+                        html += `<td class="py-4"></td>`;
+                    }
+                }
+            });
+            html += `</tr>`;
+        }
+        appContainer.innerHTML = html + `</tbody></table>`;
+    }
