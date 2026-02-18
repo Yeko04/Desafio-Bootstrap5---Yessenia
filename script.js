@@ -82,3 +82,25 @@
         }
         appContainer.innerHTML = html + `</tbody></table>`;
     }
+
+    function ConfiguracionDeBotones() {
+        document.getElementById('btnImprimir').onclick = () => window.print();
+        document.getElementById('btnExportar').onclick = () => {
+            let csv = "Codigo,Materia,Grupo,Dia,Horario,Aula\n";
+            materias.forEach(m => {
+                csv += `${m.codigo},${m.nombre},${m.grupo},${m.dia},${m.horaInicio}:00-${m.horaFin}:00,${m.aula}\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'horario_academico.csv');
+            a.click();
+        };
+
+        document.getElementById('btnSalir').onclick = () => {
+            if (confirm("¿Deseas salir de la aplicación?")) {
+                window.close();
+            }
+        };
+    }
