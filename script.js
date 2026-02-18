@@ -13,9 +13,6 @@
 
     const diasSemana = ["LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES"];
     const appContainer = document.getElementById('app');
-    const btnLista = document.getElementById('btnLista');
-    const btnCalendario = document.getElementById('btnCalendario');
-
     document.addEventListener('DOMContentLoaded', () => {
         ConfiguracionDeBotones();
     });
@@ -23,15 +20,17 @@
     renderLista();
 
     function cambiarVista(vista) {
+        const btnLista = document.getElementById('btnLista');
+        const btnCalendario = document.getElementById('btnCalendario');
+
         if (vista === 'lista') {
             renderLista();
             btnLista.classList.replace("btn-outline-primary", "btn-primary");
-            btnLista.classList.remove("btn-outline-secondary"); 
-            btnCalendario.className = "btn btn-outline-secondary";
+            btnCalendario.classList.replace("btn-primary", "btn-outline-primary"); 
         } else {
             renderCalendario();
-            btnCalendario.className = "btn btn-primary";
-            btnLista.className = "btn btn-outline-secondary";
+            btnCalendario.classList.replace("btn-outline-primary", "btn-primary");
+            btnLista.classList.replace("btn-primary", "btn-outline-primary");
         }
     }
     function renderLista() {
