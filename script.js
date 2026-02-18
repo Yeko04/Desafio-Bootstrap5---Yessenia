@@ -16,6 +16,10 @@
     const btnLista = document.getElementById('btnLista');
     const btnCalendario = document.getElementById('btnCalendario');
 
+    document.addEventListener('DOMContentLoaded', () => {
+        ConfiguracionDeBotones();
+    });
+
     renderLista();
 
     function cambiarVista(vista) {

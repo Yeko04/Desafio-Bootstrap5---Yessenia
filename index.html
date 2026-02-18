@@ -42,20 +42,20 @@
 
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div class="btn-group me-2 shadow-sm"> 
-                <button id="btnLista" onclick="cambiarVista('lista')" class="btn btn-primary">Vista Lista</button>
-                <button id="btnCalendario" onclick="cambiarVista('calendario')" class="btn btn-outline-secondary">Vista Calendario</button>
+                <button id="btnLista" onclick="cambiarVista('lista')" class="btn btn-primary">Lista</button>
+                <button id="btnCalendario" onclick="cambiarVista('calendario')" class="btn btn-outline-primary">Calendario</button>
             </div>
-            <div class="btn-group d-flex gap-2">
-                <button id="btnImprimir" type="button" class="btn btn-outline-primary">Imprimir</button>
-                <button id="btnExportar" type="button" class="btn btn-outline-primary">Exportar</button>
-                <button id="btnSalir" type="button" class="btn btn-danger">Salir</button>
+            <div class="btn-group shadow-sm">
+                <button id="btnImprimir" class="btn btn-light border">Imprimir</button>
+                <button id="btnExportar" class="btn btn-light border">Exportar CSV</button>
+                <button id="btnSalir" class="btn btn-danger">Salir</button>
             </div>
         </div>
 
-        <div id="app" class="table-responsive shadow-sm" style="min-height: 400px;"></div>
+        <div id="app" class="table-responsive shadow-sm border" style="min-height: 400px;"></div>
 
         <hr class="my-4">
-        <footer class="text-center text-muted">
+        <footer class="text-center text-muted no-print py-5">
             <small>Sistema de Gestión Académica - Derechos Reservados 1999-2026</small>
         </footer>
     </div>
