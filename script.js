@@ -13,6 +13,7 @@
 
     const diasSemana = ["LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES"];
     const appContainer = document.getElementById('app');
+    
     document.addEventListener('DOMContentLoaded', () => {
         ConfiguracionDeBotones();
     });
