@@ -12,7 +12,7 @@
         .navbar { border-bottom: 3px solid #dc3545; }
         .card-container { background: white; border-radius: 12px; overflow: hidden; }
         .table thead { background-color: #212529; color: white; }
-        /* Estilos específicos para el Calendario */
+        /* Estilos para el Calendario */
         .celda-materia { transition: all 0.3s ease; cursor: pointer; border-left: 4px solid #0d6efd !important; }
         .celda-materia:hover { filter: brightness(0.95); transform: scale(1.01); z-index: 10; }
         .hora-col { background-color: #f1f3f5; font-weight: 600; color: #495057; width: 80px; }
@@ -37,32 +37,31 @@
     </nav>
 
     <div class="container">
-        
-        <div class="col-md-6 text-dark m-0">
-            <h3 class="fw-bold">Reporte Oficial de Horarios</h3>
+        <div class="row mb-4 align-items-center">
+            <div class="col-md-6">
+                <h3 class="fw-bold text-dark m-0">Reporte Oficial de Horarios</h3>
+            </div>
+
+            <div class="col-md-6 text-md-end no-print">
+                <div class="btn-group me-2 shadow-sm"> 
+                    <button id="btnLista" onclick="cambiarVista('lista')" class="btn btn-primary">Lista</button>
+                    <button id="btnCalendario" onclick="cambiarVista('calendario')" class="btn btn-outline-primary">Calendario</button>
+                </div>
+                <div class="btn-group shadow-sm">
+                    <button id="btnImprimir" class="btn btn-light border">Imprimir</button>
+                    <button id="btnExportar" class="btn btn-light border">Exportar CSV</button>
+                    <button id="btnSalir" class="btn btn-danger">Salir</button>
+                </div>
+            </div>
         </div>
 
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <div class="btn-group me-2 shadow-sm"> 
-                <button id="btnLista" onclick="cambiarVista('lista')" class="btn btn-primary">Lista</button>
-                <button id="btnCalendario" onclick="cambiarVista('calendario')" class="btn btn-outline-primary">Calendario</button>
-            </div>
-            <div class="btn-group shadow-sm">
-                <button id="btnImprimir" class="btn btn-light border">Imprimir</button>
-                <button id="btnExportar" class="btn btn-light border">Exportar CSV</button>
-                <button id="btnSalir" class="btn btn-danger">Salir</button>
-            </div>
-        </div>
-
-        <div id="app" class="table-responsive shadow-sm border" style="min-height: 400px;"></div>
+        <div id="app" class="card-container shadow-sm border"> </div>
 
         <hr class="my-4">
         <footer class="text-center text-muted no-print py-5">
-            <small>Sistema de Gestión Académica - Derechos Reservados 1999-2026</small>
+            <small>&copy; Sistema de Gestión Académica - Derechos Reservados 1999-2026</small>
         </footer>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     
     <script src="script.js"></script>
 
