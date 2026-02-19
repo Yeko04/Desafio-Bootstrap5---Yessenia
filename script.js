@@ -63,30 +63,30 @@
 
     function renderCalendario() {
         let html = `
-        <table class="table table-bordered text-center mb-0">
-            <thead class="table-dark">
-                <tr><th style="width:10%">HORA</th>${diasSemana.map(d => `<th style="width:18%">${d}</th>`).join('')}</tr>
+        <table class="table table-bordered table-fixed mb-0">
+            <thead class="table-dark text-center">
+                <tr><th class="hora-col">HORA</th>${diasSemana.map(d => `<th">${d}</th>`).join('')}</tr>
             </thead>
             <tbody>`;
 
         for (let hora = 8; hora <= 16; hora++) {``
-            html += `<tr><td class="bg-light fw-bold align-middle py-4">${hora}:00</td>`;
+            html += `<tr><td class="hora-col text-center small">${hora}:00</td>`;
             
             diasSemana.forEach(dia => {
                 const m = materias.find(x => x.dia === dia && x.horaInicio === hora);
                 
                 if (m) {
                     let rowspan = m.horaFin - m.horaInicio;
-                    html += `<td rowspan="${rowspan}" class="table-primary border-start border-4 border-primary align-middle position-relative">
-                                <div class="fw-bold text-primary">${m.nombre}</div>
-                                <span class="badge bg-primary mb-1">${m.grupo}</span>
-                                <div class="small text-muted">${m.aula}</div>
-                             </td>`;
+                    html += `
+                    <td rowspan="${rowspan}" class="table-primary celda-materia p-3">
+                        <div class="small fw-bold text-primary">${m.nombre}</div>
+                        <span class="badge bg-primary my-1">${m.grupo}</span>
+                        <div class="small text-muted" style="font-size: 0.7rem;">Aula: ${m.aula}</div>
+                    </td>`;
                 } else {
-                    const ocupado = materias.some(x => x.dia === dia && hora > x.horaInicio && hora < x.horaFin);
-                    if (!ocupado) {
-                        html += `<td class="py-4"></td>`;
-                    }
+                    if (!materias.some(x => x.dia === dia && hora > x.horaInicio && hora < x.horaFin)) {
+                    html += `<td class="bg-white"></td>`;
+                }
                 }
             });
             html += `</tr>`;
