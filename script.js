@@ -16,10 +16,9 @@
     
     document.addEventListener('DOMContentLoaded', () => {
         ConfiguracionDeBotones();
+        renderLista();
     });
-
-    renderLista();
-
+    
     function cambiarVista(vista) {
         const btnLista = document.getElementById('btnLista');
         const btnCalendario = document.getElementById('btnCalendario');
@@ -105,10 +104,12 @@
             const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
-
-            a.setAttribute('href', url);
-            a.setAttribute('download', 'horario_academico.csv');
+            a.href = url;
+            a.download = 'horario_academico.csv';
+            document.body.appendChild(a); 
             a.click();
+            document.body.removeChild(a); 
+            
             window.URL.revokeObjectURL(url);
         };
 
