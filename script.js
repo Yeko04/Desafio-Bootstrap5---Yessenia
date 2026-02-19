@@ -35,15 +35,15 @@
     }
     function renderLista() {
         let html = `
-        <table class="table table-hover table-striped table-bordered align-middle">
+        <table class="table table-hover mb-0">
             <thead class="table-dark">
                 <tr>
-                <th class="ps-4">CÓDIGO</th>
-                <th>ASIGNATURA</th>
-                <th class="text-center">GRUPO</th>
-                <th class="text-center">DÍA</th>
-                <th class="text-center">HORARIO</th>
-                <th class="text-center">AULA</th>
+                    <th class="ps-4">CÓDIGO</th>
+                    <th>ASIGNATURA</th>
+                    <th class="text-center">GRUPO</th>
+                    <th class="text-center">DÍA</th>
+                    <th class="text-center">HORARIO</th>
+                    <th class="text-center">AULA</th>
                 </tr>
             </thead>
             <tbody class="bg-white">`;
@@ -63,9 +63,9 @@
 
     function renderCalendario() {
         let html = `
-        <table class="table table-bordered table-fixed mb-0">
+        <table class="table table-bordered mb-0 table-fixed">
             <thead class="table-dark text-center">
-                <tr><th class="hora-col">HORA</th>${diasSemana.map(d => `<th">${d}</th>`).join('')}</tr>
+                <tr><th class="hora-col">HORA</th>${diasSemana.map(d => `<th>${d}</th>`).join('')}</tr>
             </thead>
             <tbody>`;
 
